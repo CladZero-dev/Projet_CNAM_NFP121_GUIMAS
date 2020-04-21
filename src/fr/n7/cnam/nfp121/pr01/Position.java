@@ -14,4 +14,14 @@ public class Position {
 	@Override public String toString() {
 		return super.toString() + "(" + x + "," + y + ")";
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null) {
+			return false;
+		}
+		
+		Position posObj = (Position)obj;
+		return (this.x == posObj.x && this.y == posObj.y);
+	}
 }

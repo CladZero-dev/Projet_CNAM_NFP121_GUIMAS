@@ -4,10 +4,10 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
-  * ExempleAnalyse 
-  *
-  * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
-  */
+ * ExempleAnalyse
+ *
+ * @author Xavier Cregut <Prenom.Nom@enseeiht.fr>
+ */
 
 public class ExempleAnalyse {
 
@@ -25,7 +25,7 @@ public class ExempleAnalyse {
 
 		System.out.println("Traitement : " + somme);
 
-		// Traiter des données manuelles
+		// Traiter des donnees manuelles
 		somme.gererDebutLot("manuelles");
 		somme.traiter(new Position(1, 1), 5.0);
 		somme.traiter(new Position(1, 2), 2.0);
@@ -33,7 +33,7 @@ public class ExempleAnalyse {
 		somme.traiter(new Position(1, 2), 1.5);
 		somme.gererFinLot("manuelles");
 
-		// Exploiter les résultats
+		// Exploiter les resultats
 		System.out.println("Somme = " + somme.somme());
 		System.out.println("Positions.frequence(new Position(1,2)) = " + positions.frequence(new Position(1, 2)));
 	}
@@ -48,8 +48,7 @@ public class ExempleAnalyse {
 
 		System.out.println("Traitement : " + main);
 
-
-		// Traiter des données manuelles
+		// Traiter des donnees manuelles
 		main.gererDebutLot("manuelles");
 		main.traiter(new Position(1, 1), 5.0);
 		main.traiter(new Position(1, 2), 2.0);
@@ -59,7 +58,7 @@ public class ExempleAnalyse {
 		// Construire l'analyseur
 		Analyseur analyseur = new Analyseur(main);
 
-		// Traiter les autres sources de données : "donnees.txt", etc.
+		// Traiter les autres sources de donnees : "donnees.txt", etc.
 	}
 
 	public static void main(String[] args) throws java.io.FileNotFoundException {
@@ -68,13 +67,10 @@ public class ExempleAnalyse {
 
 		String calculs = "Positions 0 1 Max 0 1 Somme 0 1 SommeParPosition 0";
 		String generateur = "GenerateurXML 1 java.lang.String NOM--genere.xml";
-		String traitement1 = generateur.replaceAll("NOM", "brut") + " 3"
-			+ " " + calculs + " 0"
-			+ " " + "SupprimerPlusPetit 1 double 0.0 1 SupprimerPlusGrand 1 double 10.0 2"
-				+ " " + generateur.replaceAll("NOM", "valides") + " 0"
-				+ " " + calculs + " 0"
-			+ " " + "Normaliseur 2 double 0.0 double 100.0 2"
-				+ " " + generateur.replaceAll("NOM", "normalisees") + " 0"
+		String traitement1 = generateur.replaceAll("NOM", "brut") + " 3" + " " + calculs + " 0" + " "
+				+ "SupprimerPlusPetit 1 double 0.0 1 SupprimerPlusGrand 1 double 10.0 2" + " "
+				+ generateur.replaceAll("NOM", "valides") + " 0" + " " + calculs + " 0" + " "
+				+ "Normaliseur 2 double 0.0 double 100.0 2" + " " + generateur.replaceAll("NOM", "normalisees") + " 0"
 				+ " " + calculs + " 0";
 
 		exemple2(calculs + " 0");

@@ -16,7 +16,6 @@ public interface FabriqueTraitement {
 	PositionsAbstrait positions();
 	Donnees donnees();
 	Multiplicateur multiplicateur(double facteur);
-	/*
 	SommeParPosition sommeParPosition();
 	SupprimerPlusGrand supprimerPlusGrand(double seuil);
 	SupprimerPlusPetit supprimerPlusPetit(double seuil);
@@ -24,6 +23,5 @@ public interface FabriqueTraitement {
 	Normaliseur normaliseur(double debut, double fin);
 	GenerateurXML generateurXML(String nomFichier);
 	Maj maj();
-	*/
 
 }

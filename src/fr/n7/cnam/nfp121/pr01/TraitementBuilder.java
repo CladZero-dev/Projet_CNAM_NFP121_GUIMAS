@@ -2,6 +2,7 @@ package fr.n7.cnam.nfp121.pr01;
 
 import java.lang.reflect.*;
 import java.util.*;
+import java.util.Scanner;
 
 /**
   * TraitementBuilder 
@@ -16,7 +17,21 @@ public class TraitementBuilder {
 	 *   - Normaliseur donne Normaliseur.class
 	 */
 	Class<?> analyserType(String nomType) throws ClassNotFoundException {
-		return null;	// TODO à remplacer
+		
+		Class<?> classe = null;
+
+		try {
+			classe = Class.forName(nomType);
+		}catch(ClassNotFoundException e) {
+			switch(nomType) {
+				case "int" :
+					return int.class;
+				case "double" :
+					return double.class;
+			}
+		}
+		
+		return classe;
 	}
 
 	/** Crée l'objet java qui correspond au type formel en exploitant le « mot » suviant du scanner.
@@ -24,7 +39,16 @@ public class TraitementBuilder {
 	 * Ici, on peut se limiter aux types utlisés dans le projet : int, double et String.
 	 */
 	static Object decoderEffectif(Class<?> formel, Scanner in) {
-		return null;	// TODO à remplacer
+		
+		if(formel.equals(int.class)) {
+			return in.nextInt();
+		}else if(formel.equals(double.class)) {
+			return Double.parseDouble(in.next());
+		}else if(formel.equals(String.class)) {
+			return in.next();
+		}
+		
+		return null;
 	}
 	
 
@@ -46,7 +70,21 @@ public class TraitementBuilder {
 	 *   - [0.0, "xyz", -5] pour les paramètres formels.
 	 */
 	Signature analyserSignature(Scanner in) throws ClassNotFoundException {
-		return null;	// TODO à remplacer
+		int nbParam = in.nextInt();
+		
+		if(nbParam == 0) {
+			return new TraitementBuilder.Signature(new Class<?>[] {}, new Object[] {});
+		}
+		
+		Class<?>[] classe = new Class<?>[nbParam];
+		Object[] objet = new Object[nbParam];
+		
+		for(int i = 0; i < nbParam; i++) {
+			classe[i] = analyserType(in.next());
+			objet[i] = decoderEffectif(classe[i], in);
+		}
+		
+		return new TraitementBuilder.Signature(classe, objet);
 	}
 
 
@@ -60,7 +98,10 @@ public class TraitementBuilder {
 						  IllegalAccessException, NoSuchMethodException,
 						  InstantiationException
 	{
-		return null;	// TODO à remplacer
+		Signature signature  = this.analyserSignature(in);
+		Class<?> classe = this.analyserType(this.getClass().getPackage().getName() + "." + in.next());
+		
+		return classe.getConstructor(signature.formels).newInstance(signature.effectifs);
 	}
 
 
@@ -79,7 +120,14 @@ public class TraitementBuilder {
 						  IllegalAccessException, NoSuchMethodException,
 						  InstantiationException
 	{
-		return null;	// TODO à remplacer
+		Traitement t = (Traitement)this.analyserCreation(in);
+		
+		int nxt = in.nextInt();
+		for(int i = 0; i < nxt; i++) {
+			t.ajouterSuivants((Traitement)this.analyserTraitement(in, env));
+		}
+		
+		return t;
 	}
 
 

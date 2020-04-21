@@ -14,6 +14,5 @@
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdom-2.0.6/lib/xalan/serializer-2.7.2.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdom-2.0.6/lib/xalan/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/hamcrest-all-1.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/leogu/Downloads/scanner-3.1.0.cr4-sources.jar/scanner-3.1.0.cr4-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

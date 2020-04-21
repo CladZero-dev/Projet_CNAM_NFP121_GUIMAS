@@ -2,7 +2,6 @@ package fr.n7.cnam.nfp121.pr01;
 
 import java.lang.reflect.*;
 import java.util.*;
-import java.util.Scanner;
 
 /**
   * TraitementBuilder 
@@ -85,6 +84,7 @@ public class TraitementBuilder {
 		}
 		
 		return new TraitementBuilder.Signature(classe, objet);
+
 	}
 
 
@@ -98,8 +98,8 @@ public class TraitementBuilder {
 						  IllegalAccessException, NoSuchMethodException,
 						  InstantiationException
 	{
-		Signature signature  = this.analyserSignature(in);
 		Class<?> classe = this.analyserType(this.getClass().getPackage().getName() + "." + in.next());
+		Signature signature  = this.analyserSignature(in);
 		
 		return classe.getConstructor(signature.formels).newInstance(signature.effectifs);
 	}

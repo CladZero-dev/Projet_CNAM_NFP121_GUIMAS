@@ -23,5 +23,6 @@ public interface FabriqueTraitement {
 	Normaliseur normaliseur(double debut, double fin);
 	GenerateurXML generateurXML(String nomFichier);
 	Maj maj();
+	Diviseur diviseur(double dividende);
 
 }

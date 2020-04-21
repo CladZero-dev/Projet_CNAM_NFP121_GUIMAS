@@ -51,6 +51,10 @@ public class FabriqueTraitementConcrete implements FabriqueTraitement {
 	@Override public Maj maj() {
 		return new Maj();
 	}
+	
+	@Override public Diviseur diviseur(double dividende) {
+		return new Diviseur(dividende);
+	}
 
 
 }

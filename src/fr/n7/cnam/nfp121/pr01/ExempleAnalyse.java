@@ -60,6 +60,37 @@ public class ExempleAnalyse {
 
 		// Traiter les autres sources de donnees : "donnees.txt", etc.
 	}
+	
+	//Exemple Modulo
+	public static void exemple3() {
+		System.out.println();
+		System.out.println("=== exemple3() --> Division ===");
+
+		FabriqueTraitement traitements = new FabriqueTraitementConcrete();
+
+		// Construire le traitement
+		
+		double divi= 5.4;
+		
+		Diviseur d = traitements.diviseur(divi);
+		PositionsAbstrait positions = traitements.positions();
+		d.ajouterSuivants(positions);
+		Analyseur analyseur = new Analyseur(d);
+
+		System.out.println("Traitement : " + d);
+
+		// Traiter des donnees manuelles
+		d.gererDebutLot("manuelles");
+		d.traiter(new Position(1, 1), 5.0);
+		d.traiter(new Position(1, 2), 2.0);
+		d.traiter(new Position(1, 1), -1.0);
+		d.traiter(new Position(1, 2), 1.5);
+		d.gererFinLot("manuelles");
+
+		// Exploiter les resultats
+		System.out.println("Division par " + divi  + " = " + d.diviseur());
+		System.out.println("Positions.frequence(new Position(1,2)) = " + positions.frequence(new Position(1, 2)));
+	}
 
 	public static void main(String[] args) throws java.io.FileNotFoundException {
 		exemple1();
@@ -75,6 +106,8 @@ public class ExempleAnalyse {
 
 		exemple2(calculs + " 0");
 		exemple2(traitement1);
+		
+		exemple3();
 	}
 
 }

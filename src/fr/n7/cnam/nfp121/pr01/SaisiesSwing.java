@@ -11,7 +11,7 @@ public class SaisiesSwing extends JFrame implements ActionListener{
 	
 	//Declarations des differents attributs
 	private String nameF; //Nom Fichier
-	private JPanel mainPanel; //Block principal
+	private JPanel mainPanel; //Bloc principal
 	private JButton submitBtn, endBtn, deleteBtn; //Les differents boutons
 	private JTextField xAxisField, yAxisField, valeurField; //Les differents champs
 	private ArrayList<Integer> xList, yList; //La liste des coordonnees, ici des int
@@ -40,9 +40,9 @@ public class SaisiesSwing extends JFrame implements ActionListener{
 		this.yList = new ArrayList<Integer>();
 		
 		
-		this.mainPanel = new JPanel(); //Block principal, contriendra les autres blocks
-		JPanel fieldsPanel = new JPanel(); //Block contenant les champs
-		JPanel buttonsPanel = new JPanel(); //Block contenant les bouttons
+		this.mainPanel = new JPanel(); //Bloc principal, contriendra les autres blocks
+		JPanel fieldsPanel = new JPanel(); //Bloc contenant les champs
+		JPanel buttonsPanel = new JPanel(); //Bloc contenant les bouttons
 		
 		
 		//Initialisation des noms/titres pour les differents champs

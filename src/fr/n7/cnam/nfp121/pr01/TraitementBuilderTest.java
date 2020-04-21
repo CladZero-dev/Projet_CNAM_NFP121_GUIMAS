@@ -4,7 +4,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import java.lang.reflect.*;
 import java.util.*;
-import java.util.Scanner;
 
 /**
   * TraitementBuilderTest 

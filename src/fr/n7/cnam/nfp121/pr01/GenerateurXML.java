@@ -24,7 +24,7 @@ public class GenerateurXML extends Traitement {
 	public GenerateurXML(String nameF) {
 		this.nameF = nameF;
 		this.root = new Element("Root");
-		this.document = new Document(this.root, new DocType("src/generateur.dtd"));
+		this.document = new Document(this.root, new DocType("generateur.dtd"));
 	}
 	
 	@Override
